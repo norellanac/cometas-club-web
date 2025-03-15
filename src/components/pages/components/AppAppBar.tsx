@@ -11,7 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import ColorModeIconDropdown from './ColorModeIconDropdown';
+import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
 import Sitemark from './SitemarkIcon';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -22,13 +22,22 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   borderRadius: `calc(${theme.shape.borderRadius}px + 8px)`,
   backdropFilter: 'blur(24px)',
   border: '1px solid',
-  borderColor: (theme.vars || theme).palette.divider,
+  borderColor: theme.palette.divider,
   backgroundColor: theme.vars
     ? `rgba(${theme.vars.palette.background.defaultChannel} / 0.4)`
     : alpha(theme.palette.background.default, 0.4),
   boxShadow: (theme.vars || theme).shadows[1],
   padding: '8px 12px',
 }));
+
+const navItems = [
+  { text: 'Inicio', path: '/' },
+  { text: 'Sobre Nosotros', path: '/about' },
+  { text: 'Contacto', path: '/contact' },
+  // { text: 'Talleres', path: '/workshops' },
+  // { text: 'Actividades', path: '/activities' },
+  // { text: 'Blog', path: '/blog' },
+];
 
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
@@ -53,24 +62,11 @@ export default function AppAppBar() {
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
             <Sitemark />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Button variant="text" color="info" size="small">
-                Features
-              </Button>
-              <Button variant="text" color="info" size="small">
-                Testimonials
-              </Button>
-              <Button variant="text" color="info" size="small">
-                Highlights
-              </Button>
-              <Button variant="text" color="info" size="small">
-                Pricing
-              </Button>
-              <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                FAQ
-              </Button>
-              <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                Blog
-              </Button>
+              {navItems.map((item) => (
+                <Button key={item.text} variant="text" color="info" size="small" component="a" href={item.path}>
+                  {item.text}
+                </Button>
+              ))}
             </Box>
           </Box>
           <Box
@@ -80,12 +76,12 @@ export default function AppAppBar() {
               alignItems: 'center',
             }}
           >
-            <Button color="primary" variant="text" size="small">
-              Sign in
+            {/* <Button color="primary" variant="text" size="small">
+              Iniciar Sesión
             </Button>
             <Button color="primary" variant="contained" size="small">
-              Sign up
-            </Button>
+              Registrarse
+            </Button> */}
             <ColorModeIconDropdown />
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
@@ -114,24 +110,22 @@ export default function AppAppBar() {
                     <CloseRoundedIcon />
                   </IconButton>
                 </Box>
-
-                <MenuItem>Features</MenuItem>
-                <MenuItem>Testimonials</MenuItem>
-                <MenuItem>Highlights</MenuItem>
-                <MenuItem>Pricing</MenuItem>
-                <MenuItem>FAQ</MenuItem>
-                <MenuItem>Blog</MenuItem>
+                {navItems.map((item) => (
+                  <MenuItem key={item.text} component="a" href={item.path}>
+                    {item.text}
+                  </MenuItem>
+                ))}
                 <Divider sx={{ my: 3 }} />
-                <MenuItem>
+                {/* <MenuItem>
                   <Button color="primary" variant="contained" fullWidth>
-                    Sign up
+                    Registrarse
                   </Button>
                 </MenuItem>
                 <MenuItem>
                   <Button color="primary" variant="outlined" fullWidth>
-                    Sign in
+                    Iniciar Sesión
                   </Button>
-                </MenuItem>
+                </MenuItem> */}
               </Box>
             </Drawer>
           </Box>

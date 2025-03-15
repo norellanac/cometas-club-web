@@ -1,53 +1,37 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import Navbar from './components/organisms/Navbar';
-import HomePage from './components/pages/HomePage';
-import AboutPage from './components/pages/AboutPage';
-import ContactPage from './components/pages/ContactPage';
-import './App.css';
-import MarketingPage from './components/pages/MarketingPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import CssBaseline from '@mui/material/CssBaseline'
+import HomePage from './components/pages/HomePage'
+import ContactPage from './components/pages/ContactPage'
+import './App.css'
+import MarketingPage from './components/pages/MarketingPage'
+import AppAppBar from './components/pages/components/AppAppBar'
+import AppTheme from './components/shared-theme/AppTheme'
+import { Divider } from '@mui/material'
+import Footer from './components/pages/components/Footer'
+import LogoCollection from './components/pages/components/LogoCollection'
+import Hero from './components/pages/components/Hero'
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#007AB8',
-    },
-    secondary: {
-      main: '#FCCA4A',
-    },
-    background: {
-      default: '#F5F5F5',
-    },
-    error: {
-      main: '#F1774D',
-    },
-    info: {
-      main: '#007AB8',
-    },
-    warning: {
-      main: '#FCCA4A',
-    },
-    success: {
-      main: '#44AD88',
-    },
-  },
-});
 
-function App() {
+function App(props: { disableCustomTheme?: boolean }) {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <AppTheme {...props}>
+      <CssBaseline enableColorScheme />
+
+      <AppAppBar />
+      <Hero />
       <Router>
-        <Navbar />
+        <AppAppBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<MarketingPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
+        <LogoCollection />
+        <Divider />
+        <Footer />
       </Router>
-    </ThemeProvider>
-  );
+    </AppTheme>
+  )
 }
 
-export default App;
+export default App
