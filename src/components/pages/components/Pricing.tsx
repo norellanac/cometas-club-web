@@ -14,44 +14,47 @@ import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
 const tiers = [
   {
-    title: 'Free',
-    price: '0',
+    title: 'Básico',
+    price: '800',
     description: [
-      '10 users included',
-      '2 GB of storage',
-      'Help center access',
-      'Email support',
+      'Acceso a actividades recreativas',
+      '2 horas de cuidado diario',
+      'Materiales básicos incluidos',
+      'Acceso al centro de ayuda',
     ],
-    buttonText: 'Sign up for free',
+    buttonText: 'Inscribirse gratis',
     buttonVariant: 'outlined',
     buttonColor: 'primary',
   },
   {
-    title: 'Professional',
-    subheader: 'Recommended',
-    price: '15',
+    title: 'Profesional',
+    subheader: 'Recomendado',
+    price: '1500',
     description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
-      'Dedicated team',
-      'Best deals',
+      'Acceso a todas las actividades',
+      '5 horas de cuidado diario',
+      'Materiales educativos incluidos',
+      'Refuerzo en inglés y tareas',
+      'Talleres creativos y científicos',
+      'Desarrollo emocional y social',
     ],
-    buttonText: 'Start now',
+    buttonText: 'Comenzar ahora',
     buttonVariant: 'contained',
     buttonColor: 'secondary',
   },
   {
-    title: 'Enterprise',
-    price: '30',
+    title: 'Premium',
+    price: '1800',
     description: [
-      '50 users included',
-      '30 GB of storage',
-      'Help center access',
-      'Phone & email support',
+      'Acceso a todas las actividades',
+      '8 horas de cuidado diario',
+      'Materiales educativos y recreativos incluidos',
+      'Refuerzo en inglés y tareas',
+      'Talleres creativos y científicos',
+      'Desarrollo emocional y social',
+      'Asistencia personalizada',
     ],
-    buttonText: 'Contact us',
+    buttonText: 'Contáctanos',
     buttonVariant: 'outlined',
     buttonColor: 'primary',
   },
@@ -83,13 +86,10 @@ export default function Pricing() {
           gutterBottom
           sx={{ color: 'text.primary' }}
         >
-          Pricing
+          Precios
         </Typography>
         <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-          Quickly build an effective pricing table for your potential customers with
-          this layout. <br />
-          It&apos;s built with default Material UI components with little
-          customization.
+          Elige el plan que mejor se adapte a las necesidades de tu hijo. Ofrecemos opciones flexibles y asequibles para todos.
         </Typography>
       </Box>
       <Grid
@@ -99,7 +99,7 @@ export default function Pricing() {
       >
         {tiers.map((tier) => (
           <Grid
-            size={{ xs: 12, sm: tier.title === 'Enterprise' ? 12 : 6, md: 4 }}
+            size={{ xs: 12, sm: tier.title === 'Premium' ? 12 : 6, md: 4 }}
             key={tier.title}
           >
             <Card
@@ -110,7 +110,7 @@ export default function Pricing() {
                   flexDirection: 'column',
                   gap: 4,
                 },
-                tier.title === 'Professional' &&
+                tier.title === 'Profesional' &&
                   ((theme) => ({
                     border: 'none',
                     background:
@@ -134,7 +134,7 @@ export default function Pricing() {
                       alignItems: 'center',
                       gap: 2,
                     },
-                    tier.title === 'Professional'
+                    tier.title === 'Profesional'
                       ? { color: 'grey.100' }
                       : { color: '' },
                   ]}
@@ -142,7 +142,7 @@ export default function Pricing() {
                   <Typography component="h3" variant="h6">
                     {tier.title}
                   </Typography>
-                  {tier.title === 'Professional' && (
+                  {tier.title === 'Profesional' && (
                     <Chip icon={<AutoAwesomeIcon />} label={tier.subheader} />
                   )}
                 </Box>
@@ -152,16 +152,16 @@ export default function Pricing() {
                       display: 'flex',
                       alignItems: 'baseline',
                     },
-                    tier.title === 'Professional'
+                    tier.title === 'Profesional'
                       ? { color: 'grey.50' }
                       : { color: null },
                   ]}
                 >
                   <Typography component="h3" variant="h2">
-                    ${tier.price}
+                    Q. {tier.price}
                   </Typography>
                   <Typography component="h3" variant="h6">
-                    &nbsp; per month
+                    &nbsp; por mes
                   </Typography>
                 </Box>
                 <Divider sx={{ my: 2, opacity: 0.8, borderColor: 'divider' }} />
@@ -175,7 +175,7 @@ export default function Pricing() {
                         {
                           width: 20,
                         },
-                        tier.title === 'Professional'
+                        tier.title === 'Profesional'
                           ? { color: 'primary.light' }
                           : { color: 'primary.main' },
                       ]}
@@ -184,7 +184,7 @@ export default function Pricing() {
                       variant="subtitle2"
                       component={'span'}
                       sx={[
-                        tier.title === 'Professional'
+                        tier.title === 'Profesional'
                           ? { color: 'grey.50' }
                           : { color: null },
                       ]}

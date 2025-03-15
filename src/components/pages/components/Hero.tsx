@@ -37,6 +37,14 @@ const StyledBox = styled('div')(({ theme }) => ({
 }));
 
 export default function Hero() {
+  const [message, setMessage] = React.useState('');
+
+  const handleSendMessage = () => {
+    const whatsappMessage = `Hola, ${message}`;
+    const whatsappUrl = `https://wa.me/51419213?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <Box
       id="hero"
@@ -74,7 +82,7 @@ export default function Hero() {
               fontSize: 'clamp(3rem, 10vw, 3.5rem)',
             }}
           >
-            Our&nbsp;latest&nbsp;
+            Cometas&nbsp;Club&nbsp;
             <Typography
               component="span"
               variant="h1"
@@ -86,7 +94,7 @@ export default function Hero() {
                 }),
               })}
             >
-              products
+              Infantil
             </Typography>
           </Typography>
           <Typography
@@ -96,9 +104,7 @@ export default function Hero() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            Explore our cutting-edge dashboard, delivering high-quality solutions
-            tailored to your needs. Elevate your experience with top-tier features
-            and services.
+            Donde los niños exploran, crean y crecen. Aprende a través de la diversión en un ambiente seguro y amigable.
           </Typography>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -106,31 +112,28 @@ export default function Hero() {
             useFlexGap
             sx={{ pt: 2, width: { xs: '100%', sm: '350px' } }}
           >
-            <InputLabel htmlFor="email-hero" sx={visuallyHidden}>
-              Email
+            <InputLabel htmlFor="message-hero" sx={visuallyHidden}>
+              Mensaje
             </InputLabel>
             <TextField
-              id="email-hero"
+              id="message-hero"
               hiddenLabel
               size="small"
               variant="outlined"
-              aria-label="Enter your email address"
-              placeholder="Your email address"
+              aria-label="Ingresa tu mensaje"
+              placeholder="Tu mensaje"
               fullWidth
-              slotProps={{
-                htmlInput: {
-                  autoComplete: 'off',
-                  'aria-label': 'Enter your email address',
-                },
-              }}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
             <Button
               variant="contained"
               color="primary"
               size="small"
               sx={{ minWidth: 'fit-content' }}
+              onClick={handleSendMessage}
             >
-              Start now
+              Enviar Mensaje
             </Button>
           </Stack>
           <Typography
@@ -138,9 +141,9 @@ export default function Hero() {
             color="text.secondary"
             sx={{ textAlign: 'center' }}
           >
-            By clicking &quot;Start now&quot; you agree to our&nbsp;
+            Al hacer clic en &quot;Enviar Mensaje&quot; aceptas nuestros&nbsp;
             <Link href="#" color="primary">
-              Terms & Conditions
+              Términos y Condiciones
             </Link>
             .
           </Typography>

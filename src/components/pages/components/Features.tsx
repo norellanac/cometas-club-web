@@ -7,9 +7,9 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
+import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
+import SportsSoccerRoundedIcon from '@mui/icons-material/SportsSoccerRounded';
+import ScienceRoundedIcon from '@mui/icons-material/ScienceRounded';
 
 import cometasFacebook from './../../../assets/cometas-facebook.png';
 import cometasBanner from './../../../assets/comets-banner.jpeg';
@@ -17,26 +17,26 @@ import cometasFacebookProfile from './../../../assets/cometas-facebook-profile.p
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
-    title: 'Dashboard',
+    icon: <SchoolRoundedIcon />,
+    title: 'Refuerzo Escolar',
     description:
-      'This item could provide a snapshot of the most important metrics or data points related to the product.',
+      'Apoyo en inglés y tareas para ayudar a los niños a tener éxito en la escuela.',
     imageLight: `url(${cometasBanner})`,
     imageDark: `url(${cometasBanner})`,
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
-    title: 'Mobile integration',
+    icon: <SportsSoccerRoundedIcon />,
+    title: 'Actividades Recreativas',
     description:
-      'This item could provide information about the mobile app version of the product.',
+      'Actividades deportivas y recreativas para fomentar el desarrollo físico y social.',
     imageLight: `url(${cometasFacebookProfile})`,
     imageDark: `url(${cometasFacebookProfile})`,
   },
   {
-    icon: <DevicesRoundedIcon />,
-    title: 'Available on all platforms',
+    icon: <ScienceRoundedIcon />,
+    title: 'Talleres Creativos y Científicos',
     description:
-      'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
+      'Talleres creativos y científicos para estimular el interés y la curiosidad de los niños.',
     imageLight: `url(${cometasFacebook})`,
     imageDark: `url(${cometasFacebook})`,
   },
@@ -155,15 +155,13 @@ export default function Features() {
           gutterBottom
           sx={{ color: 'text.primary' }}
         >
-          Product features
+          Características del Centro
         </Typography>
         <Typography
           variant="body1"
           sx={{ color: 'text.secondary', mb: { xs: 2, sm: 4 } }}
         >
-          Provide a brief overview of the key features of the product. For example,
-          you could list the number of features, their types or benefits, and
-          add-ons.
+          Ofrecemos una variedad de servicios para apoyar el desarrollo integral de los niños. Descubre nuestras características clave.
         </Typography>
       </Box>
       <Box

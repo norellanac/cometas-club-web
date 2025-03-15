@@ -15,39 +15,45 @@ import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 const items = [
   {
     icon: <SettingsSuggestRoundedIcon />,
-    title: 'Adaptable performance',
+    title: 'Imaginación',
     description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+      'Fomentamos la creatividad y la imaginación a través de actividades divertidas y educativas.',
   },
   {
     icon: <ConstructionRoundedIcon />,
-    title: 'Built to last',
+    title: 'Aprendizaje',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      'Ofrecemos un entorno de aprendizaje seguro y estimulante para que los niños desarrollen sus habilidades.',
   },
   {
     icon: <ThumbUpAltRoundedIcon />,
-    title: 'Great user experience',
+    title: 'Comunidad',
     description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+      'Promovemos un sentido de comunidad y colaboración entre los niños y sus familias.',
   },
   {
     icon: <AutoFixHighRoundedIcon />,
-    title: 'Innovative functionality',
+    title: 'Espacio seguro para CREAR Y JUGAR',
     description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+      'Proporcionamos un espacio seguro donde los niños pueden explorar, crear y jugar libremente.',
   },
   {
     icon: <SupportAgentRoundedIcon />,
-    title: 'Reliable support',
+    title: 'Refuerzo en INGLÉS Y TAREAS',
     description:
-      'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+      'Ofrecemos apoyo en inglés y tareas para ayudar a los niños a tener éxito en la escuela.',
   },
   {
     icon: <QueryStatsRoundedIcon />,
-    title: 'Precision in every detail',
+    title: 'Talleres creativos y científicos',
     description:
-      'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+      'Organizamos talleres creativos y científicos para estimular el interés y la curiosidad de los niños.',
+  },
+  {
+    icon: <AutoFixHighRoundedIcon />,
+    title: 'Desarrollo emocional y social',
+    description:
+      'Fomentamos el desarrollo emocional y social a través de actividades grupales y apoyo personalizado.',
   },
 ];
 
@@ -55,12 +61,12 @@ export default function Highlights() {
   return (
     <Box
       id="highlights"
-      sx={{
+      sx={(theme) => ({
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
-        color: 'white',
-        bgcolor: 'grey.900',
-      }}
+        color: theme.palette.mode === 'dark' ? 'white' : 'black',
+        bgcolor: theme.palette.mode === 'dark' ? 'grey.900' : 'grey.100',
+      })}
     >
       <Container
         sx={{
@@ -78,12 +84,10 @@ export default function Highlights() {
           }}
         >
           <Typography component="h2" variant="h4" gutterBottom>
-            Highlights
+            Destacados
           </Typography>
           <Typography variant="body1" sx={{ color: 'grey.400' }}>
-            Explore why our product stands out: adaptability, durability,
-            user-friendly design, and innovation. Enjoy reliable customer support and
-            precision in every detail.
+            Descubre por qué nuestro centro de cuidado y enseñanza para niños se destaca: imaginación, aprendizaje, comunidad, y más.
           </Typography>
         </Box>
         <Grid container spacing={2}>
@@ -94,13 +98,13 @@ export default function Highlights() {
                 component={Card}
                 spacing={1}
                 useFlexGap
-                sx={{
+                sx={(theme) => ({
                   color: 'inherit',
                   p: 3,
                   height: '100%',
-                  borderColor: 'hsla(220, 25%, 25%, 0.3)',
-                  backgroundColor: 'grey.800',
-                }}
+                  borderColor: theme.palette.mode === 'dark' ? 'hsla(220, 25%, 25%, 0.3)' : 'hsla(220, 25%, 75%, 0.3)',
+                  backgroundColor: theme.palette.mode === 'dark' ? 'grey.800' : 'white',
+                })}
               >
                 <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
                 <div>

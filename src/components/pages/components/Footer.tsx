@@ -8,17 +8,17 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import FacebookIcon from '@mui/icons-material/GitHub';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/X';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import SitemarkIcon from './SitemarkIcon';
 
 function Copyright() {
   return (
     <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
       {'Copyright © '}
-      <Link color="text.secondary" href="https://mui.com/">
-        Sitemark
+      <Link color="text.secondary" href="https://cometasclub.com/">
+        Cometas Club
       </Link>
       &nbsp;
       {new Date().getFullYear()}
@@ -57,12 +57,12 @@ export default function Footer() {
           <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
             <SitemarkIcon />
             <Typography variant="body2" gutterBottom sx={{ fontWeight: 600, mt: 2 }}>
-              Join the newsletter
+              Únete a nuestro boletín
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-              Subscribe for weekly updates. No spams ever!
+              Suscríbete para recibir actualizaciones semanales. ¡No enviamos spam!
             </Typography>
-            <InputLabel htmlFor="email-newsletter">Email</InputLabel>
+            <InputLabel htmlFor="email-newsletter">Correo Electrónico</InputLabel>
             <Stack direction="row" spacing={1} useFlexGap>
               <TextField
                 id="email-newsletter"
@@ -70,12 +70,12 @@ export default function Footer() {
                 size="small"
                 variant="outlined"
                 fullWidth
-                aria-label="Enter your email address"
-                placeholder="Your email address"
+                aria-label="Ingresa tu dirección de correo electrónico"
+                placeholder="Tu dirección de correo electrónico"
                 slotProps={{
                   htmlInput: {
                     autoComplete: 'off',
-                    'aria-label': 'Enter your email address',
+                    'aria-label': 'Ingresa tu dirección de correo electrónico',
                   },
                 }}
                 sx={{ width: '250px' }}
@@ -86,7 +86,7 @@ export default function Footer() {
                 size="small"
                 sx={{ flexShrink: 0 }}
               >
-                Subscribe
+                Suscribirse
               </Button>
             </Stack>
           </Box>
@@ -99,22 +99,22 @@ export default function Footer() {
           }}
         >
           <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-            Product
+            Servicios
           </Typography>
           <Link color="text.secondary" variant="body2" href="#">
-            Features
+            Características
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            Testimonials
+            Testimonios
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            Highlights
+            Destacados
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            Pricing
+            Precios
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            FAQs
+            Preguntas Frecuentes
           </Link>
         </Box>
         <Box
@@ -125,16 +125,16 @@ export default function Footer() {
           }}
         >
           <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-            Company
+            Compañía
           </Typography>
           <Link color="text.secondary" variant="body2" href="#">
-            About us
+            Sobre Nosotros
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            Careers
+            Carreras
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            Press
+            Prensa
           </Link>
         </Box>
         <Box
@@ -148,13 +148,13 @@ export default function Footer() {
             Legal
           </Typography>
           <Link color="text.secondary" variant="body2" href="#">
-            Terms
+            Términos
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            Privacy
+            Privacidad
           </Link>
           <Link color="text.secondary" variant="body2" href="#">
-            Contact
+            Contacto
           </Link>
         </Box>
       </Box>
@@ -170,13 +170,13 @@ export default function Footer() {
       >
         <div>
           <Link color="text.secondary" variant="body2" href="#">
-            Privacy Policy
+            Política de Privacidad
           </Link>
           <Typography sx={{ display: 'inline', mx: 0.5, opacity: 0.5 }}>
             &nbsp;•&nbsp;
           </Typography>
           <Link color="text.secondary" variant="body2" href="#">
-            Terms of Service
+            Términos de Servicio
           </Link>
           <Copyright />
         </div>
@@ -189,8 +189,8 @@ export default function Footer() {
           <IconButton
             color="inherit"
             size="small"
-            href="https://github.com/mui"
-            aria-label="GitHub"
+            href="https://facebook.com/cometasclub"
+            aria-label="Facebook"
             sx={{ alignSelf: 'center' }}
           >
             <FacebookIcon />
@@ -198,8 +198,8 @@ export default function Footer() {
           <IconButton
             color="inherit"
             size="small"
-            href="https://x.com/MaterialUI"
-            aria-label="X"
+            href="https://twitter.com/cometasclub"
+            aria-label="Twitter"
             sx={{ alignSelf: 'center' }}
           >
             <TwitterIcon />
@@ -207,7 +207,7 @@ export default function Footer() {
           <IconButton
             color="inherit"
             size="small"
-            href="https://www.linkedin.com/company/mui/"
+            href="https://www.linkedin.com/company/cometasclub/"
             aria-label="LinkedIn"
             sx={{ alignSelf: 'center' }}
           >
