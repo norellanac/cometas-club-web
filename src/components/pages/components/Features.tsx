@@ -29,16 +29,16 @@ const items = [
     title: 'Actividades Recreativas',
     description:
       'Actividades deportivas y recreativas para fomentar el desarrollo físico y social.',
-    imageLight: `url(${cometasFacebookProfile})`,
-    imageDark: `url(${cometasFacebookProfile})`,
+    imageLight: `url(${cometasBanner})`,
+    imageDark: `url(${cometasBanner})`,
   },
   {
     icon: <ScienceRoundedIcon />,
     title: 'Talleres Creativos y Científicos',
     description:
       'Talleres creativos y científicos para estimular el interés y la curiosidad de los niños.',
-    imageLight: `url(${cometasFacebook})`,
-    imageDark: `url(${cometasFacebook})`,
+    imageLight: `url(${cometasBanner})`,
+    imageDark: `url(${cometasBanner})`,
   },
 ];
 

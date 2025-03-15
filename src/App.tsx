@@ -23,8 +23,9 @@ function App(props: { disableCustomTheme?: boolean }) {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<MarketingPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
-        <LogoCollection />
+        {/* <LogoCollection /> */}
         <Divider />
         <Footer />
       </Router>

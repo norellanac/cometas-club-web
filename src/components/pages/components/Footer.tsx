@@ -9,9 +9,10 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import SitemarkIcon from './SitemarkIcon';
+import { Link as RouterLink } from 'react-router-dom';
 
 function Copyright() {
   return (
@@ -27,6 +28,15 @@ function Copyright() {
 }
 
 export default function Footer() {
+  const [email, setEmail] = React.useState('');
+  const [message, setMessage] = React.useState('');
+
+  const handleSendMessage = () => {
+    const whatsappMessage = `Hola, soy ${email}. ${message}`;
+    const whatsappUrl = `https://wa.me/50251419213?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <Container
       sx={{
@@ -72,12 +82,8 @@ export default function Footer() {
                 fullWidth
                 aria-label="Ingresa tu dirección de correo electrónico"
                 placeholder="Tu dirección de correo electrónico"
-                slotProps={{
-                  htmlInput: {
-                    autoComplete: 'off',
-                    'aria-label': 'Ingresa tu dirección de correo electrónico',
-                  },
-                }}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 sx={{ width: '250px' }}
               />
               <Button
@@ -85,6 +91,7 @@ export default function Footer() {
                 color="primary"
                 size="small"
                 sx={{ flexShrink: 0 }}
+                onClick={handleSendMessage}
               >
                 Suscribirse
               </Button>
@@ -101,19 +108,19 @@ export default function Footer() {
           <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
             Servicios
           </Typography>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/" color="text.secondary" variant="body2">
             Características
           </Link>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/about" color="text.secondary" variant="body2">
             Testimonios
           </Link>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/" color="text.secondary" variant="body2">
             Destacados
           </Link>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/pricing" color="text.secondary" variant="body2">
             Precios
           </Link>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/about" color="text.secondary" variant="body2">
             Preguntas Frecuentes
           </Link>
         </Box>
@@ -127,13 +134,13 @@ export default function Footer() {
           <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
             Compañía
           </Typography>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/about" color="text.secondary" variant="body2">
             Sobre Nosotros
           </Link>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/" color="text.secondary" variant="body2">
             Carreras
           </Link>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/" color="text.secondary" variant="body2">
             Prensa
           </Link>
         </Box>
@@ -147,13 +154,13 @@ export default function Footer() {
           <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
             Legal
           </Typography>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/terms" color="text.secondary" variant="body2">
             Términos
           </Link>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/privacy" color="text.secondary" variant="body2">
             Privacidad
           </Link>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/contact" color="text.secondary" variant="body2">
             Contacto
           </Link>
         </Box>
@@ -169,13 +176,13 @@ export default function Footer() {
         }}
       >
         <div>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/privacy" color="text.secondary" variant="body2">
             Política de Privacidad
           </Link>
           <Typography sx={{ display: 'inline', mx: 0.5, opacity: 0.5 }}>
             &nbsp;•&nbsp;
           </Typography>
-          <Link color="text.secondary" variant="body2" href="#">
+          <Link component={RouterLink} to="/terms" color="text.secondary" variant="body2">
             Términos de Servicio
           </Link>
           <Copyright />
@@ -189,7 +196,7 @@ export default function Footer() {
           <IconButton
             color="inherit"
             size="small"
-            href="https://facebook.com/cometasclub"
+            href="https://www.facebook.com/people/Cometas-Club/61574187088378/"
             aria-label="Facebook"
             sx={{ alignSelf: 'center' }}
           >
@@ -198,20 +205,20 @@ export default function Footer() {
           <IconButton
             color="inherit"
             size="small"
-            href="https://twitter.com/cometasclub"
-            aria-label="Twitter"
+            href="https://www.instagram.com/cometasclubinfantil/"
+            aria-label="Instagram"
             sx={{ alignSelf: 'center' }}
           >
-            <TwitterIcon />
+            <InstagramIcon />
           </IconButton>
           <IconButton
             color="inherit"
             size="small"
-            href="https://www.linkedin.com/company/cometasclub/"
-            aria-label="LinkedIn"
+            href="https://wa.me/50251419213"
+            aria-label="WhatsApp"
             sx={{ alignSelf: 'center' }}
           >
-            <LinkedInIcon />
+            <WhatsAppIcon />
           </IconButton>
         </Stack>
       </Box>
