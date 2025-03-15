@@ -11,6 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { Link } from 'react-router-dom';
 import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
 import Sitemark from './SitemarkIcon';
 
@@ -63,7 +64,7 @@ export default function AppAppBar() {
             <Sitemark />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               {navItems.map((item) => (
-                <Button key={item.text} variant="text" color="info" size="small" component="a" href={item.path}>
+                <Button key={item.text} variant="text" color="info" size="small" component={Link} to={item.path}>
                   {item.text}
                 </Button>
               ))}
@@ -111,7 +112,7 @@ export default function AppAppBar() {
                   </IconButton>
                 </Box>
                 {navItems.map((item) => (
-                  <MenuItem key={item.text} component="a" href={item.path}>
+                  <MenuItem key={item.text} component={Link} to={item.path}>
                     {item.text}
                   </MenuItem>
                 ))}

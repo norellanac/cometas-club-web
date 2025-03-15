@@ -9,7 +9,6 @@ import AppTheme from './components/shared-theme/AppTheme'
 import { Divider } from '@mui/material'
 import Footer from './components/pages/components/Footer'
 import LogoCollection from './components/pages/components/LogoCollection'
-import Hero from './components/pages/components/Hero'
 
 
 function App(props: { disableCustomTheme?: boolean }) {
@@ -17,9 +16,8 @@ function App(props: { disableCustomTheme?: boolean }) {
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
 
-      <AppAppBar />
-      <Hero />
       <Router>
+      <AppAppBar />
         <AppAppBar />
         <Routes>
           <Route path="/" element={<HomePage />} />

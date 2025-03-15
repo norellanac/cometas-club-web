@@ -8,10 +8,12 @@ import SecurityIcon from '@mui/icons-material/Security';
 import Pricing from './components/Pricing';
 import Features from './components/Features';
 import Highlights from './components/Highlights';
+import Hero from './components/Hero';
 
 function HomePage() {
   return (
     <Container>
+      <Hero />
       <Features />
       <Pricing />
       <Highlights />
