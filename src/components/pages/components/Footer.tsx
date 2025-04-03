@@ -12,7 +12,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import SitemarkIcon from './SitemarkIcon';
-import { Link as RouterLink } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function Copyright() {
   return (
@@ -29,6 +30,8 @@ function Copyright() {
 
 export default function Footer() {
   const [message, setMessage] = React.useState('');
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleSendMessage = () => {
     const whatsappMessage = `Hola, me gustaría recibir más información sobre Cometas Club. ${message}`;
@@ -107,45 +110,42 @@ export default function Footer() {
           </Box>
         </Box>
 
-        {/* Social Media Section */}
-        <Stack
-          direction="row"
-          spacing={2}
-          useFlexGap
-          sx={{
-            justifyContent: { xs: 'center', sm: 'flex-start' },
-            color: 'text.secondary',
-            mt: { xs: 4, sm: 0 },
-          }}
-        >
-          <IconButton
-            color="inherit"
-            size="small"
-            href="https://www.facebook.com/people/Cometas-Club/61574187088378/"
-            aria-label="Facebook"
-            sx={{ alignSelf: 'center' }}
+        {/* Social Media Icons for Desktop */}
+        {!isMobile && (
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 2,
+            }}
           >
-            <FacebookIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            size="small"
-            href="https://www.instagram.com/cometasclubinfantil/"
-            aria-label="Instagram"
-            sx={{ alignSelf: 'center' }}
-          >
-            <InstagramIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            size="small"
-            href="https://wa.me/50251419213"
-            aria-label="WhatsApp"
-            sx={{ alignSelf: 'center' }}
-          >
-            <WhatsAppIcon />
-          </IconButton>
-        </Stack>
+            <IconButton
+              color="primary"
+              size="large"
+              href="https://www.facebook.com/people/Cometas-Club/61574187088378/"
+              aria-label="Facebook"
+            >
+              <FacebookIcon />
+            </IconButton>
+            <IconButton
+              color="secondary"
+              size="large"
+              href="https://www.instagram.com/cometasclubinfantil/"
+              aria-label="Instagram"
+            >
+              <InstagramIcon />
+            </IconButton>
+            <IconButton
+              color="success"
+              size="large"
+              href="https://wa.me/50251419213"
+              aria-label="WhatsApp"
+            >
+              <WhatsAppIcon />
+            </IconButton>
+          </Box>
+        )}
       </Box>
 
       {/* Footer Bottom Section */}
@@ -167,6 +167,52 @@ export default function Footer() {
         </Typography>
         <Copyright />
       </Box>
+
+      {/* Floating Social Media Icons for Mobile */}
+      {isMobile && (
+        <Box
+          sx={{
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 2,
+            zIndex: 1000,
+            backgroundColor: 'background.paper',
+            padding: 2,
+            boxShadow: 2,
+            borderTop: '1px solid',
+            borderColor: 'divider',
+          }}
+        >
+          <IconButton
+            color="primary"
+            size="large"
+            href="https://www.facebook.com/people/Cometas-Club/61574187088378/"
+            aria-label="Facebook"
+          >
+            <FacebookIcon />
+          </IconButton>
+          <IconButton
+            color="secondary"
+            size="large"
+            href="https://www.instagram.com/cometasclubinfantil/"
+            aria-label="Instagram"
+          >
+            <InstagramIcon />
+          </IconButton>
+          <IconButton
+            color="success"
+            size="large"
+            href="https://wa.me/50251419213"
+            aria-label="WhatsApp"
+          >
+            <WhatsAppIcon />
+          </IconButton>
+        </Box>
+      )}
     </Container>
   );
 }

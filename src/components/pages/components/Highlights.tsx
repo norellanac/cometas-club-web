@@ -5,12 +5,15 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid2';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
 import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
-import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
 import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
 import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const items = [
   {
@@ -52,15 +55,23 @@ const items = [
 ];
 
 export default function Highlights() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [selectedTab, setSelectedTab] = React.useState(0);
+
+  const handleTabChange = (event, newValue) => {
+    setSelectedTab(newValue);
+  };
+
   return (
     <Box
       id="highlights"
-      sx={(theme) => ({
+      sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
         color: theme.palette.mode === 'dark' ? 'white' : 'black',
         bgcolor: theme.palette.mode === 'dark' ? 'grey.900' : 'grey.100',
-      })}
+      }}
     >
       <Container
         sx={{
@@ -84,35 +95,82 @@ export default function Highlights() {
             Descubre por qué nuestro centro de cuidado y enseñanza para niños se destaca: imaginación, aprendizaje, comunidad, y más.
           </Typography>
         </Box>
-        <Grid container spacing={2}>
-          {items.map((item, index) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
-              <Stack
-                direction="column"
-                component={Card}
-                spacing={1}
-                useFlexGap
-                sx={(theme) => ({
-                  color: 'inherit',
-                  p: 3,
-                  height: '100%',
-                  borderColor: theme.palette.mode === 'dark' ? 'hsla(220, 25%, 25%, 0.3)' : 'hsla(220, 25%, 75%, 0.3)',
-                  backgroundColor: theme.palette.mode === 'dark' ? 'grey.800' : 'white',
-                })}
-              >
-                <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
+        {isMobile ? (
+          <Box sx={{ width: '100%' }}>
+            <Tabs
+              value={selectedTab}
+              onChange={handleTabChange}
+              variant="scrollable"
+              scrollButtons="auto"
+              aria-label="Highlights Tabs"
+              sx={{ mb: 2 }}
+            >
+              {items.map((item, index) => (
+                <Tab key={index} label={item.title} />
+              ))}
+            </Tabs>
+            <Card
+              sx={{
+                p: 3,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
+                borderColor:
+                  theme.palette.mode === 'dark'
+                    ? 'hsla(220, 25%, 25%, 0.3)'
+                    : 'hsla(220, 25%, 75%, 0.3)',
+                backgroundColor:
+                  theme.palette.mode === 'dark' ? 'grey.800' : 'white',
+              }}
+            >
+              <Stack direction="column" spacing={2}>
+                <Box sx={{ opacity: '50%' }}>{items[selectedTab].icon}</Box>
                 <div>
                   <Typography gutterBottom sx={{ fontWeight: 'medium' }}>
-                    {item.title}
+                    {items[selectedTab].title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: 'grey.400' }}>
-                    {item.description}
+                    {items[selectedTab].description}
                   </Typography>
                 </div>
               </Stack>
-            </Grid>
-          ))}
-        </Grid>
+            </Card>
+          </Box>
+        ) : (
+          <Grid container spacing={2}>
+            {items.map((item, index) => (
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+                <Stack
+                  direction="column"
+                  component={Card}
+                  spacing={1}
+                  useFlexGap
+                  sx={{
+                    color: 'inherit',
+                    p: 3,
+                    height: '100%',
+                    borderColor:
+                      theme.palette.mode === 'dark'
+                        ? 'hsla(220, 25%, 25%, 0.3)'
+                        : 'hsla(220, 25%, 75%, 0.3)',
+                    backgroundColor:
+                      theme.palette.mode === 'dark' ? 'grey.800' : 'white',
+                  }}
+                >
+                  <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
+                  <div>
+                    <Typography gutterBottom sx={{ fontWeight: 'medium' }}>
+                      {item.title}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'grey.400' }}>
+                      {item.description}
+                    </Typography>
+                  </div>
+                </Stack>
+              </Grid>
+            ))}
+          </Grid>
+        )}
       </Container>
     </Box>
   );

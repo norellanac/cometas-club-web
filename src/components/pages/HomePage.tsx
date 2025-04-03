@@ -13,7 +13,7 @@ import Hero from './components/Hero';
 function HomePage() {
   return (
     <Container>
-      <Hero />
+      {/* <Hero /> */}
       <Features />
       <Pricing />
       <Highlights />
