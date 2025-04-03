@@ -44,12 +44,6 @@ const items = [
       'Ofrecemos apoyo en inglés y tareas para ayudar a los niños a tener éxito en la escuela.',
   },
   {
-    icon: <QueryStatsRoundedIcon />,
-    title: 'Talleres creativos y científicos',
-    description:
-      'Organizamos talleres creativos y científicos para estimular el interés y la curiosidad de los niños.',
-  },
-  {
     icon: <AutoFixHighRoundedIcon />,
     title: 'Desarrollo emocional y social',
     description:

@@ -33,7 +33,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 
 const navItems = [
   { text: 'Inicio', path: '/' },
-  { text: 'Sobre Nosotros', path: '/about' },
+  // { text: 'Sobre Nosotros', path: '/about' },
   { text: 'Contacto', path: '/contact' },
   // { text: 'Talleres', path: '/workshops' },
   // { text: 'Actividades', path: '/activities' },

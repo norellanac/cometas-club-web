@@ -16,7 +16,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 function Copyright() {
   return (
-    <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
+    <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1, textAlign: 'center' }}>
       {'Copyright © '}
       <Link color="text.secondary" href="https://cometasclub.com/">
         Cometas Club
@@ -28,11 +28,10 @@ function Copyright() {
 }
 
 export default function Footer() {
-  const [email, setEmail] = React.useState('');
   const [message, setMessage] = React.useState('');
 
   const handleSendMessage = () => {
-    const whatsappMessage = `Hola, soy ${email}. ${message}`;
+    const whatsappMessage = `Hola, me gustaría recibir más información sobre Cometas Club. ${message}`;
     const whatsappUrl = `https://wa.me/50251419213?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -44,8 +43,8 @@ export default function Footer() {
         flexDirection: 'column',
         alignItems: 'center',
         gap: { xs: 4, sm: 8 },
-        py: { xs: 8, sm: 10 },
-        textAlign: { sm: 'center', md: 'left' },
+        py: { xs: 4, sm: 8 },
+        textAlign: { xs: 'center', sm: 'left' },
       }}
     >
       <Box
@@ -54,144 +53,70 @@ export default function Footer() {
           flexDirection: { xs: 'column', sm: 'row' },
           width: '100%',
           justifyContent: 'space-between',
+          gap: { xs: 4, sm: 0 },
         }}
       >
+        {/* Contact Section */}
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             gap: 4,
-            minWidth: { xs: '100%', sm: '60%' },
+            width: { xs: '100%', sm: '60%' },
           }}
         >
-          <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
+          <Box>
             <SitemarkIcon />
             <Typography variant="body2" gutterBottom sx={{ fontWeight: 600, mt: 2 }}>
-              Únete a nuestro boletín
+              Contáctanos por WhatsApp
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-              Suscríbete para recibir actualizaciones semanales. ¡No enviamos spam!
+              Envíanos un mensaje para recibir información personalizada. ¡Estamos aquí para ayudarte!
             </Typography>
-            <InputLabel htmlFor="email-newsletter">Correo Electrónico</InputLabel>
-            <Stack direction="row" spacing={1} useFlexGap>
+            <InputLabel htmlFor="whatsapp-message" sx={{ display: 'none' }}>
+              Tu Mensaje
+            </InputLabel>
+            <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              spacing={1}
+              useFlexGap
+              sx={{ alignItems: { xs: 'stretch', sm: 'center' } }}
+            >
               <TextField
-                id="email-newsletter"
+                id="whatsapp-message"
                 hiddenLabel
                 size="small"
                 variant="outlined"
                 fullWidth
-                aria-label="Ingresa tu dirección de correo electrónico"
-                placeholder="Tu dirección de correo electrónico"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                sx={{ width: '250px' }}
+                aria-label="Ingresa tu mensaje"
+                placeholder="Escribe tu mensaje aquí"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                sx={{ width: { xs: '100%', sm: '250px' } }}
               />
               <Button
                 variant="contained"
                 color="primary"
                 size="small"
-                sx={{ flexShrink: 0 }}
+                sx={{ flexShrink: 0, width: { xs: '100%', sm: 'auto' } }}
                 onClick={handleSendMessage}
               >
-                Suscribirse
+                Enviar por WhatsApp
               </Button>
             </Stack>
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            flexDirection: 'column',
-            gap: 1,
-          }}
-        >
-          <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-            Servicios
-          </Typography>
-          <Link component={RouterLink} to="/" color="text.secondary" variant="body2">
-            Características
-          </Link>
-          <Link component={RouterLink} to="/about" color="text.secondary" variant="body2">
-            Testimonios
-          </Link>
-          <Link component={RouterLink} to="/" color="text.secondary" variant="body2">
-            Destacados
-          </Link>
-          <Link component={RouterLink} to="/pricing" color="text.secondary" variant="body2">
-            Precios
-          </Link>
-          <Link component={RouterLink} to="/about" color="text.secondary" variant="body2">
-            Preguntas Frecuentes
-          </Link>
-        </Box>
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            flexDirection: 'column',
-            gap: 1,
-          }}
-        >
-          <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-            Compañía
-          </Typography>
-          <Link component={RouterLink} to="/about" color="text.secondary" variant="body2">
-            Sobre Nosotros
-          </Link>
-          <Link component={RouterLink} to="/" color="text.secondary" variant="body2">
-            Carreras
-          </Link>
-          <Link component={RouterLink} to="/" color="text.secondary" variant="body2">
-            Prensa
-          </Link>
-        </Box>
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            flexDirection: 'column',
-            gap: 1,
-          }}
-        >
-          <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-            Legal
-          </Typography>
-          <Link component={RouterLink} to="/terms" color="text.secondary" variant="body2">
-            Términos
-          </Link>
-          <Link component={RouterLink} to="/privacy" color="text.secondary" variant="body2">
-            Privacidad
-          </Link>
-          <Link component={RouterLink} to="/contact" color="text.secondary" variant="body2">
-            Contacto
-          </Link>
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          pt: { xs: 4, sm: 8 },
-          width: '100%',
-          borderTop: '1px solid',
-          borderColor: 'divider',
-        }}
-      >
-        <div>
-          <Link component={RouterLink} to="/privacy" color="text.secondary" variant="body2">
-            Política de Privacidad
-          </Link>
-          <Typography sx={{ display: 'inline', mx: 0.5, opacity: 0.5 }}>
-            &nbsp;•&nbsp;
-          </Typography>
-          <Link component={RouterLink} to="/terms" color="text.secondary" variant="body2">
-            Términos de Servicio
-          </Link>
-          <Copyright />
-        </div>
+
+        {/* Social Media Section */}
         <Stack
           direction="row"
-          spacing={1}
+          spacing={2}
           useFlexGap
-          sx={{ justifyContent: 'left', color: 'text.secondary' }}
+          sx={{
+            justifyContent: { xs: 'center', sm: 'flex-start' },
+            color: 'text.secondary',
+            mt: { xs: 4, sm: 0 },
+          }}
         >
           <IconButton
             color="inherit"
@@ -221,6 +146,26 @@ export default function Footer() {
             <WhatsAppIcon />
           </IconButton>
         </Stack>
+      </Box>
+
+      {/* Footer Bottom Section */}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          width: '100%',
+          borderTop: '1px solid',
+          borderColor: 'divider',
+          pt: 4,
+          mt: 4,
+        }}
+      >
+        <Typography variant="body2" sx={{ color: 'text.secondary', textAlign: { xs: 'center', sm: 'left' } }}>
+          Política de Privacidad • Términos de Servicio
+        </Typography>
+        <Copyright />
       </Box>
     </Container>
   );

@@ -4,9 +4,13 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function FAQ() {
   const [expanded, setExpanded] = React.useState<string[]>([]);
@@ -55,17 +59,51 @@ export default function FAQ() {
             id="panel1d-header"
           >
             <Typography component="span" variant="subtitle2">
-              ¿Cuál es el horario de atención del centro?
+              ¿Qué incluye el Plan Básico?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
-            >
-              Nuestro centro está abierto de lunes a viernes, de 8:00 AM a 6:00 PM. También ofrecemos horarios extendidos y servicios los fines de semana bajo solicitud.
+            <Typography variant="body2" gutterBottom>
+              El Plan Básico incluye:
             </Typography>
+            <List>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="📅 Horario: 12:00 PM - 6:00 PM" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="🏡 Espacio seguro para jugar y aprender" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="🧠 Talleres creativos y científicos" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="📖 Refuerzo en inglés y apoyo con tareas" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="💬 Desarrollo emocional y social" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="📌 Descuento: 10% en pago en efectivo" />
+              </ListItem>
+            </List>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -78,17 +116,39 @@ export default function FAQ() {
             id="panel2d-header"
           >
             <Typography component="span" variant="subtitle2">
-              ¿Qué medidas de seguridad tienen en el centro?
+              ¿Qué incluye el Plan Extendido?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
-            >
-              Contamos con personal capacitado en primeros auxilios, cámaras de seguridad en todas las áreas y protocolos estrictos de entrada y salida para garantizar la seguridad de los niños.
+            <Typography variant="body2" gutterBottom>
+              El Plan Extendido incluye todo lo del Plan Básico, más:
             </Typography>
+            <List>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="📅 Horario extendido: 12:00 PM - 8:00 PM" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="🎯 Actividades adicionales" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="🍽️ Opción de cena ligera (consulta disponibilidad)" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="📌 Descuento: 10% en pago en efectivo" />
+              </ListItem>
+            </List>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -101,63 +161,39 @@ export default function FAQ() {
             id="panel3d-header"
           >
             <Typography component="span" variant="subtitle2">
-              ¿Qué tipo de actividades ofrecen?
+              ¿Qué es el Plan OnDemand?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
-            >
-              Ofrecemos una variedad de actividades que incluyen talleres creativos y científicos, actividades deportivas, refuerzo escolar, y programas de desarrollo emocional y social.
+            <Typography variant="body2" gutterBottom>
+              El Plan OnDemand es ideal para necesidades específicas y días ocasionales. Ofrecemos:
             </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes('panel4')}
-          onChange={handleChange('panel4')}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel4d-content"
-            id="panel4d-header"
-          >
-            <Typography component="span" variant="subtitle2">
-              ¿Cómo puedo inscribir a mi hijo en el centro?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
-            >
-              Puede inscribir a su hijo completando el formulario de inscripción en nuestro sitio web o visitando nuestro centro en persona. Nuestro personal estará encantado de ayudarle con el proceso.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes('panel5')}
-          onChange={handleChange('panel5')}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel5d-content"
-            id="panel5d-header"
-          >
-            <Typography component="span" variant="subtitle2">
-              ¿Qué opciones de pago están disponibles?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
-            >
-              Aceptamos pagos en efectivo, tarjetas de crédito y débito, y transferencias bancarias. También ofrecemos planes de pago flexibles para adaptarnos a sus necesidades.
-            </Typography>
+            <List>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="📅 Horario: 12:00 PM - 6:00 PM" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="📚 Tutoría personalizada: Q75 por sesión" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="⏳ Jornada diaria completa: Q150 por día" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <CheckCircleIcon color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="📌 Descuento: Paquetes prepagados con tarifa reducida" />
+              </ListItem>
+            </List>
           </AccordionDetails>
         </Accordion>
       </Box>

@@ -10,55 +10,70 @@ import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
 const tiers = [
   {
-    title: 'Básico',
-    price: '800',
+    title: 'Plan OnDemand',
+    price: '175',
+    time: 'día',
     description: [
-      'Acceso a actividades recreativas',
-      '2 horas de cuidado diario',
-      'Materiales básicos incluidos',
-      'Acceso al centro de ayuda',
+      '📅 Horario: 12:00 PM - 6:00 PM',
+      '🎨 Acceso a actividades y talleres únicos',
+      '⏳ Ideal para días ocasionales',
+      '📦 Materiales incluidos para cada sesión',
+      '📚 Tutoría personalizada: Q100 por sesión',
+      '💵 Descuento: 10% en pagos en efectivo',
     ],
-    buttonText: 'Inscribirse gratis',
+    buttonText: 'Reserva tu día',
     buttonVariant: 'outlined',
     buttonColor: 'primary',
   },
   {
-    title: 'Profesional',
-    subheader: 'Recomendado',
-    price: '1500',
+    title: 'Plan Básico',
+    subheader: 'Más Popular',
+    price: '1,299',
+    time: 'mes',
     description: [
-      'Acceso a todas las actividades',
-      '5 horas de cuidado diario',
-      'Materiales educativos incluidos',
-      'Refuerzo en inglés y tareas',
-      'Talleres creativos y científicos',
-      'Desarrollo emocional y social',
+      '📅 Horario: 12:00 PM - 6:00 PM',
+      '🏡 Espacio seguro para jugar y aprender',
+      '🧠 Talleres creativos y científicos',
+      '📖 Refuerzo y apoyo con tareas escolares',
+      '💬 Desarrollo emocional y social',
+      '🤝 Atención personalizada para cada niño',
+      '📦 Materiales básicos incluidos',
+      '💵 Descuento: 10% en pagos en efectivo',
     ],
-    buttonText: 'Comenzar ahora',
+    buttonText: 'Elige este plan',
     buttonVariant: 'contained',
     buttonColor: 'secondary',
   },
   {
-    title: 'Premium',
-    price: '1800',
+    title: 'Plan Premium',
+    price: '1,699',
+    time: 'mes',
     description: [
-      'Acceso a todas las actividades',
-      '8 horas de cuidado diario',
-      'Materiales educativos y recreativos incluidos',
-      'Refuerzo en inglés y tareas',
-      'Talleres creativos y científicos',
-      'Desarrollo emocional y social',
-      'Asistencia personalizada',
+      '📅 Horario extendido: 12:00 PM - 8:00 PM',
+      '🏡 Todo lo del Plan Básico, más:',
+      '🎯 Actividades adicionales para potenciar el aprendizaje',
+      '🎨 Talleres creativos y científicos',
+      '📖 Refuerzo y apoyo con tareas escolares',
+      '💬 Desarrollo emocional y social',
+      '🤝 Atención personalizada para cada niño',
+      '💵 Descuento: 10% en pagos en efectivo',
     ],
-    buttonText: 'Contáctanos',
+    buttonText: 'Obtén lo mejor',
     buttonVariant: 'outlined',
     buttonColor: 'primary',
   },
 ];
+
+const handleWhatsAppClick = (tier ) => {
+  const { title, price } = tier;
+  const phoneNumber = '50251419213';
+  const message = `Hola, estoy interesado en el ${title} por Q${price}. ¿Podrían darme más información?`;
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+};
 
 export default function Pricing() {
   return (
@@ -86,10 +101,10 @@ export default function Pricing() {
           gutterBottom
           sx={{ color: 'text.primary' }}
         >
-          Precios
+          Planes que se adaptan a ti
         </Typography>
         <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-          Elige el plan que mejor se adapte a las necesidades de tu hijo. Ofrecemos opciones flexibles y asequibles para todos.
+          Descubre nuestras opciones diseñadas para el cuidado y desarrollo integral de tus hijos. ¡Elige el plan perfecto para ti!
         </Typography>
       </Box>
       <Grid
@@ -99,106 +114,87 @@ export default function Pricing() {
       >
         {tiers.map((tier) => (
           <Grid
-            size={{ xs: 12, sm: tier.title === 'Premium' ? 12 : 6, md: 4 }}
+            size={{ xs: 12, sm: tier.title === 'Plan Premium' ? 12 : 6, md: 4 }}
             key={tier.title}
           >
             <Card
-              sx={[
-                {
-                  p: 2,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 4,
-                },
-                tier.title === 'Profesional' &&
-                  ((theme) => ({
-                    border: 'none',
-                    background:
-                      'radial-gradient(circle at 50% 0%, hsl(220, 20%, 35%), hsl(220, 30%, 6%))',
-                    boxShadow: `0 8px 12px hsla(220, 20%, 42%, 0.2)`,
-                    ...theme.applyStyles('dark', {
-                      background:
-                        'radial-gradient(circle at 50% 0%, hsl(220, 20%, 20%), hsl(220, 30%, 16%))',
-                      boxShadow: `0 8px 12px hsla(0, 0%, 0%, 0.8)`,
-                    }),
-                  })),
-              ]}
+              sx={{
+                p: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4,
+                height: '100%',
+              }}
             >
               <CardContent>
                 <Box
-                  sx={[
-                    {
-                      mb: 1,
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      gap: 2,
-                    },
-                    tier.title === 'Profesional'
-                      ? { color: 'grey.100' }
-                      : { color: '' },
-                  ]}
+                  sx={{
+                    mb: 1,
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: 2,
+                  }}
                 >
                   <Typography component="h3" variant="h6">
                     {tier.title}
                   </Typography>
-                  {tier.title === 'Profesional' && (
-                    <Chip icon={<AutoAwesomeIcon />} label={tier.subheader} />
+                  {tier.subheader && (
+                    <Chip
+                      icon={<AutoAwesomeIcon />}
+                      label={tier.subheader}
+                      color="secondary"
+                    />
                   )}
                 </Box>
                 <Box
-                  sx={[
-                    {
-                      display: 'flex',
-                      alignItems: 'baseline',
-                    },
-                    tier.title === 'Profesional'
-                      ? { color: 'grey.50' }
-                      : { color: null },
-                  ]}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'baseline',
+                  }}
                 >
                   <Typography component="h3" variant="h2">
                     Q. {tier.price}
                   </Typography>
                   <Typography component="h3" variant="h6">
-                    &nbsp; por mes
+                    &nbsp; por {tier.time}
                   </Typography>
                 </Box>
                 <Divider sx={{ my: 2, opacity: 0.8, borderColor: 'divider' }} />
-                {tier.description.map((line) => (
-                  <Box
-                    key={line}
-                    sx={{ py: 1, display: 'flex', gap: 1.5, alignItems: 'center' }}
-                  >
-                    <CheckCircleRoundedIcon
-                      sx={[
-                        {
-                          width: 20,
-                        },
-                        tier.title === 'Profesional'
-                          ? { color: 'primary.light' }
-                          : { color: 'primary.main' },
-                      ]}
-                    />
-                    <Typography
-                      variant="subtitle2"
-                      component={'span'}
-                      sx={[
-                        tier.title === 'Profesional'
-                          ? { color: 'grey.50' }
-                          : { color: null },
-                      ]}
+                <Box
+                  component="ul"
+                  sx={{
+                    listStyle: 'none',
+                    m: 0,
+                    p: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 1.5,
+                  }}
+                >
+                  {tier.description.map((line) => (
+                    <Box
+                      component="li"
+                      key={line}
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 1,
+                      }}
                     >
-                      {line}
-                    </Typography>
-                  </Box>
-                ))}
+                      <Typography variant="subtitle2" component="span" align='left'>
+                        {line}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
               </CardContent>
               <CardActions>
                 <Button
                   fullWidth
                   variant={tier.buttonVariant as 'outlined' | 'contained'}
                   color={tier.buttonColor as 'primary' | 'secondary'}
+                  onClick={() => handleWhatsAppClick(tier)}
                 >
                   {tier.buttonText}
                 </Button>

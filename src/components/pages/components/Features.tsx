@@ -11,34 +11,43 @@ import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import SportsSoccerRoundedIcon from '@mui/icons-material/SportsSoccerRounded';
 import ScienceRoundedIcon from '@mui/icons-material/ScienceRounded';
 
-import cometasFacebook from './../../../assets/cometas-facebook.png';
 import cometasBanner from './../../../assets/comets-banner.jpeg';
-import cometasFacebookProfile from './../../../assets/cometas-facebook-profile.png';
+import cometas_story_1 from './../../../assets/cometas_story_1.png';
+import cometas_story_2 from './../../../assets/cometas_story_2.png';
+
+
+// Comunidad
+
+// Promovemos un sentido de comunidad y colaboración entre los niños y sus familias.
+
+// Desarrollo emocional y social
+
+// Fomentamos el desarrollo emocional y social a través de actividades grupales y apoyo personalizado.
 
 const items = [
   {
     icon: <SchoolRoundedIcon />,
     title: 'Refuerzo Escolar',
     description:
-      'Apoyo en inglés y tareas para ayudar a los niños a tener éxito en la escuela.',
+      '📖 Apoyo en inglés y tareas escolares para garantizar el éxito académico de los niños.',
     imageLight: `url(${cometasBanner})`,
     imageDark: `url(${cometasBanner})`,
   },
   {
     icon: <SportsSoccerRoundedIcon />,
-    title: 'Actividades Recreativas',
+    title: 'Comunidad',
     description:
-      'Actividades deportivas y recreativas para fomentar el desarrollo físico y social.',
-    imageLight: `url(${cometasBanner})`,
-    imageDark: `url(${cometasBanner})`,
+      '🤝 Fomentamos un sentido de comunidad y colaboración entre los niños y sus familias, creando lazos que fortalecen el aprendizaje y la convivencia.',
+    imageLight: `url(${cometas_story_1})`,
+    imageDark: `url(${cometas_story_1})`,
   },
   {
     icon: <ScienceRoundedIcon />,
-    title: 'Talleres Creativos y Científicos',
+    title: 'Desarrollo Emocional y Social',
     description:
-      'Talleres creativos y científicos para estimular el interés y la curiosidad de los niños.',
-    imageLight: `url(${cometasBanner})`,
-    imageDark: `url(${cometasBanner})`,
+      '💬 Promovemos el desarrollo emocional y social a través de actividades grupales y apoyo personalizado, ayudando a los niños a crecer con confianza y empatía.',
+    imageLight: `url(${cometas_story_2})`,
+    imageDark: `url(${cometas_story_2})`,
   },
 ];
 

@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import visuallyHidden from '@mui/utils/visuallyHidden';
 import { styled } from '@mui/material/styles';
-import cometasFacebook from './../../../assets/cometas-facebook-profile.png';
+import cometas_story_1 from './../../../assets/cometas_story_2.png';
 
 const StyledBox = styled('div')(({ theme }) => ({
   alignSelf: 'center',
@@ -22,7 +22,7 @@ const StyledBox = styled('div')(({ theme }) => ({
   border: '1px solid',
   borderColor: theme.palette.grey[200],
   boxShadow: '0 0 12px 8px hsla(220, 25%, 80%, 0.2)',
-  backgroundImage: `url(${cometasFacebook})`,
+  backgroundImage: `url(${cometas_story_1})`,
   backgroundSize: '95%',
   [theme.breakpoints.up('sm')]: {
     marginTop: theme.spacing(10),
@@ -30,7 +30,7 @@ const StyledBox = styled('div')(({ theme }) => ({
   },
   ...theme.applyStyles('dark', {
     boxShadow: '0 0 24px 12px hsla(210, 100%, 25%, 0.2)',
-    backgroundImage: `url(${cometasFacebook})`,
+    backgroundImage: `url(${cometas_story_1})`,
     outlineColor: 'hsla(220, 20%, 42%, 0.1)',
     borderColor: theme.palette.grey[700],
   }),
@@ -40,8 +40,8 @@ export default function Hero() {
   const [message, setMessage] = React.useState('');
 
   const handleSendMessage = () => {
-    const whatsappMessage = `Hola, ${message}`;
-    const whatsappUrl = `https://wa.me/51419213?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappMessage = `Hola, estoy interesado en Cometas Club Infantil. ${message}`;
+    const whatsappUrl = `https://wa.me/50251419213?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -121,7 +121,7 @@ export default function Hero() {
               size="small"
               variant="outlined"
               aria-label="Ingresa tu mensaje"
-              placeholder="Tu mensaje"
+              placeholder="Escribe tu mensaje aquí"
               fullWidth
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -133,7 +133,7 @@ export default function Hero() {
               sx={{ minWidth: 'fit-content' }}
               onClick={handleSendMessage}
             >
-              Enviar Mensaje
+              Enviar por WhatsApp
             </Button>
           </Stack>
           <Typography
@@ -141,7 +141,7 @@ export default function Hero() {
             color="text.secondary"
             sx={{ textAlign: 'center' }}
           >
-            Al hacer clic en &quot;Enviar Mensaje&quot; aceptas nuestros&nbsp;
+            Al hacer clic en &quot;Enviar por WhatsApp&quot; aceptas nuestros&nbsp;
             <Link href="#" color="primary">
               Términos y Condiciones
             </Link>
